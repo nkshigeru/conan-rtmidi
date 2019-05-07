@@ -8,8 +8,8 @@ jobs:
   strategy:
     matrix:
       x86:
-        CONAN_CONAN_ARCHS: x86
+        CONAN_ARCHS: x86
       x64:
-        CONAN_CONAN_ARCHS: x86_64
+        CONAN_ARCHS: x86_64
   steps:
   - template: .ci/azure-pipelines/build.yml
