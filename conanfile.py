@@ -43,4 +43,10 @@ conan_basic_setup()''')
         self.cpp_info.libs = ["rtmidi"]
         if self.settings.os == "Windows":
             self.cpp_info.libs.append("winmm")
+        elif self.settings.os == 'Macos':
+            for framework in ['Foundation',
+                              'CoreAudio',
+                              'CoreMIDI']:
+                self.cpp_info.exelinkflags.append('-framework %s' % framework)
+            self.cpp_info.sharedlinkflags = self.cpp_info.exelinkflags
 
